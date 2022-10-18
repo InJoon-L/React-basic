@@ -9,6 +9,7 @@ const App = () => {
     <Wrapper>
       <Hello content="hello" isSpecial = {true} />
       <Hello />
+      <Counter />
     </Wrapper>
   );
 }
