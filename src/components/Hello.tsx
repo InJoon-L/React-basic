@@ -12,7 +12,7 @@ const Hello = (props: HelloProps) => {
 			{ props.isSpecial && <b>*</b> }
 			안녕하세요 {props.content}
 		</div>
-	)
+	);
 }
 
 Hello.defaultProps = {
