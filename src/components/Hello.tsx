@@ -1,9 +1,23 @@
 import React from 'react';
 
-const Hello = () => {
+type HelloProps = {
+	content: string;
+	isSpecial: boolean;
+};
+
+
+const Hello = (props: HelloProps) => {
 	return (
-		<div>안녕하세요</div>
+		<div>
+			{ props.isSpecial && <b>*</b> }
+			안녕하세요 {props.content}
+		</div>
 	)
+}
+
+Hello.defaultProps = {
+	content: 'bye',
+	isSpecial: false
 }
 
 export default Hello
