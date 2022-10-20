@@ -5,7 +5,7 @@ interface inputSampleText {
 	nickname: string;
 }
 
-const InputSample = () => {
+const InputSample = (): JSX.Element => {
 	const [text, setText] = useState<inputSampleText>({
 		name: '',
 		nickname: ''

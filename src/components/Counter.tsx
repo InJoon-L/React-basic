@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Counter = () => {
+const Counter = (): JSX.Element => {
 
 	const [number, setNumber] = useState<number>(0);
 

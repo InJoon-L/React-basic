@@ -6,7 +6,7 @@ type HelloProps = {
 };
 
 
-const Hello = (props: HelloProps) => {
+const Hello = (props: HelloProps): JSX.Element => {
 	return (
 		<div>
 			{ props.isSpecial && <b>*</b> }

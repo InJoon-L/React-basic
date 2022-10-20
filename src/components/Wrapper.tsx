@@ -4,7 +4,7 @@ interface WrapperProps {
 	children: ReactNode;
 }
 
-const Wrapper = ({children} : WrapperProps) => {
+const Wrapper = ({children} : WrapperProps): JSX.Element => {
 	const style: React.CSSProperties = {
 		border: '2px solid black',
 		padding: '16px'

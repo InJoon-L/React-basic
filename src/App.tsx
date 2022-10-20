@@ -1,17 +1,11 @@
 import './App.css';
-import React from 'react';
-import Hello from './components/Hello';
 import Wrapper from './components/Wrapper';
-import Counter from './components/Counter';
-import InputSample from './components/InputSample';
+import UserList from './components/UserList';
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
     <Wrapper>
-      <Hello content="hello" isSpecial = {true} />
-      <Hello />
-      <Counter />
-      <InputSample />
+      <UserList />
     </Wrapper>
   );
 }
