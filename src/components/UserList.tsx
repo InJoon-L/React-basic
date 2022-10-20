@@ -1,16 +1,17 @@
 import React from 'react'
-import { userListType } from '../App';
+import { onRemove, userListType } from '../App';
 import User from './User';
 
-type users = {
+type UserListProps = {
 	users: userListType[];
+	onRemove: onRemove;
 };
 
-const UserList = ({ users }: users): JSX.Element => {
+const UserList = ({ users, onRemove }: UserListProps): JSX.Element => {
 	return (
 		<div>
 			{users.map((user: userListType) => (
-				<User user={user} key={user.id} />
+				<User user={user} key={user.id} onRemove={onRemove} />
 			))}
 		</div>
 	)

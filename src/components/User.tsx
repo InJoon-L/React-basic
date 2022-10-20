@@ -1,14 +1,16 @@
 import React from 'react'
-import { userListType } from '../App';
+import { onRemove, userListType } from '../App';
 
 type userType = {
 	user: userListType;
+	onRemove: onRemove;
 };
 
-const User = ({ user }: userType): JSX.Element => {
+const User = ({ user, onRemove }: userType): JSX.Element => {
 	return (
 		<div>
 			<b>{user.username}</b> <span>({user.email})</span>
+			<button onClick={() => onRemove(user.id)}>삭제</button>
 		</div>
 	)
 }
