@@ -1,30 +1,12 @@
 import React from 'react'
+import { userListType } from '../App';
 import User from './User';
 
-export type userListType = {
-	id: number;
-	username: string;
-	email: string;
-}
+type users = {
+	users: userListType[];
+};
 
-const UserList = (): JSX.Element => {
-	const users: userListType[] = [
-		{
-			id: 1,
-			username: 'velopert',
-			email: 'public.velopert@gmail.com'
-		},
-		{
-			id: 2,
-			username: 'tester',
-			email: 'tester@example.com'
-		},
-		{
-			id: 3,
-			username: 'liz',
-			email: 'liz@example.com'
-		}
-	]
+const UserList = ({ users }: users): JSX.Element => {
 	return (
 		<div>
 			{users.map((user: userListType) => (

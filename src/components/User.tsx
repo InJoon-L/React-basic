@@ -1,9 +1,9 @@
 import React from 'react'
-import { userListType } from './UserList'
+import { userListType } from '../App';
 
 type userType = {
 	user: userListType;
-}
+};
 
 const User = ({ user }: userType): JSX.Element => {
 	return (

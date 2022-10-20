@@ -15,7 +15,7 @@ const InputSample = (): JSX.Element => {
 
 	const { name, nickname } = text; // 비구조화 할당을 통해 값 추출
 
-	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		const { value, name } = e.target; // 우선 e.target에서 name과 value를 추출
 		
 		setText({
@@ -24,7 +24,7 @@ const InputSample = (): JSX.Element => {
 		});
 	}
 
-	const onReset = () => {
+	const onReset = (): void => {
 		setText({
 			name: '',
 			nickname: ''
