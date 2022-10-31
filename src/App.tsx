@@ -8,6 +8,7 @@ export type userListType = {
 	id: number;
 	username: string;
 	email: string;
+  active: boolean;
 };
 
 export interface inputsType {
@@ -27,6 +28,10 @@ export interface onRemove {
   (id: number): void;
 }
 
+export interface onToggle {
+  (id: number): void;
+}
+
 const App = (): JSX.Element => {
   const [inputs, setInputs] = useState<inputsType>({
     username: '',
@@ -37,17 +42,20 @@ const App = (): JSX.Element => {
 		{
 			id: 1,
 			username: 'velopert',
-			email: 'public.velopert@gmail.com'
+			email: 'public.velopert@gmail.com',
+      active: true
 		},
 		{
 			id: 2,
 			username: 'tester',
-			email: 'tester@example.com'
+			email: 'tester@example.com',
+      active: false
 		},
 		{
 			id: 3,
 			username: 'liz',
-			email: 'liz@example.com'
+			email: 'liz@example.com',
+      active: false
 		}
   ]);
 
@@ -66,7 +74,8 @@ const App = (): JSX.Element => {
     const user: userListType = {
       id: nextId.current,
       username: inputs.username,
-      email: inputs.email
+      email: inputs.email,
+      active: false
     };
 
     setUsers([...users, user]);
@@ -85,6 +94,12 @@ const App = (): JSX.Element => {
     setUsers(users.filter(user => user.id !== id));
   };
 
+  const onToggle = (id: number) => {
+    setUsers(
+      users.map(user => user.id === id ? { ...user, active: !user.active} : user)
+    )
+  }
+
   return (
     <Wrapper>
       <CreateUser 
@@ -92,7 +107,7 @@ const App = (): JSX.Element => {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove}/>
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
     </Wrapper>
   );
 }
