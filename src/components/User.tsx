@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { onRemove, onToggle, userListType } from '../App';
 
 type userType = {
@@ -8,6 +8,17 @@ type userType = {
 };
 
 const User = ({ user, onRemove, onToggle }: userType): JSX.Element => {
+	useEffect(() => {
+		console.log('user 값 설정');
+		console.log(user);
+		
+		return () => {
+			console.log('user가 바뀌기 전');
+			console.log(user);
+		}
+	}, [user])
+	
+	
 	return (
 		<div>
 			<b
