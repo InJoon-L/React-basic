@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import './App.css';
 import Wrapper from './components/Wrapper';
 import UserList from './components/UserList';
@@ -88,17 +88,25 @@ const App = (): JSX.Element => {
     nextId.current += 1;
   };
 
-  const onRemove = (id: number) => {
+  const onRemove = (id: number): void => {
     // user.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
     // = user.id가 id인 것을 제거함
     setUsers(users.filter(user => user.id !== id));
   };
 
-  const onToggle = (id: number) => {
+  const onToggle = (id: number): void => {
     setUsers(
       users.map(user => user.id === id ? { ...user, active: !user.active} : user)
     )
   }
+
+  const countActiveUsers = (users: userListType[]): number => {
+    console.log('활성 사용자 수를 세는 중');
+  
+    return users.filter(user => user.active).length;
+  }
+
+  const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
     <Wrapper>
@@ -108,6 +116,7 @@ const App = (): JSX.Element => {
         onCreate={onCreate}
       />
       <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+      <div>활성 사용자 수 : {count}</div>
     </Wrapper>
   );
 }
